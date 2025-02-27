@@ -13,7 +13,7 @@ const Navbar = () => {
           </a>
         </div>
         <div className="nav">
-          <ul className="flex items-center space-x-2 font-bold md:text-xl">
+          <ul className="flex items-center space-x-4 font-bold md:text-xl">
             <Link href={"/tshirts"} legacyBehavior>
               <a>
                 <li>Tshirts</li>
@@ -37,7 +37,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="cart absolute right-0 top-2 mx-5">
-          <IoCartOutline className="md:text-5xl" />
+          <IoCartOutline className=" text-4xl md:text-6xl lg:text-6xl" />
         </div>
       </div>
     </>
