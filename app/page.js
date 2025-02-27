@@ -3,11 +3,11 @@ import Navbar from "./components/Navbar";
 import home from "../public/home.png";
 import Image from "next/image";
 import Content from "./components/Content";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <div>
         <Image
           src={home}
@@ -18,11 +18,8 @@ export default function Home() {
             height: "100%",
           }}
         />
-        ;
       </div>
-
       <Content />
-      <Footer />
     </>
   );
 }
