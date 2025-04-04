@@ -1,9 +1,29 @@
+"use client";
+
 // function generateStaticParams() {}
 import Image from "next/image";
-
+import { useState } from "react";
 
 // export default function ProductDetails({ params }) {
 // export default function ProductDetails() {
+
+const [pin, setpin] = useState();
+const [service, setService] = useState();
+
+const checkServiceability = async () => {
+  let pins = await fetch("http://localhost:3000/api");
+  let pinJson = await pins.json();
+  if (pinJson.includes(pin)) {
+    setService(true);
+  } else {
+    setService(false);
+  }
+};
+
+const onChangePin = (e) => {
+  setpin(e.target.value);
+};
+
 const page = () => {
   return (
     <div>
@@ -11,16 +31,17 @@ const page = () => {
         {/* <h1>Details about product {params.productId}</h1>; */}
 
         <section className="text-gray-600 body-font overflow-hidden">
-        
           <div className="container px-5 py-24 mx-auto">
-          
             <div className="lg:w-4/5 mx-auto flex flex-wrap">
-            <Image
+              <Image
                 // alt="ecommerce"
                 // className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-                src= {"/lamp.jpg"} width={265} height={500} alt=""
+                src={"/lamp.jpg"}
+                width={265}
+                height={500}
+                alt=""
               />
-              
+
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                 <h2 className="text-sm title-font text-gray-500 tracking-widest">
                   BRAND NAME
@@ -184,6 +205,20 @@ const page = () => {
                     >
                       <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                     </svg>
+                  </button>
+                </div>
+
+                <div className="pin mt-6 flex space-x-2 text-sm">
+                  <input
+                    onChange={onChangePin}
+                    className="px-2 border-2 border-gray-400 rounded-md "
+                    type="text"
+                  />
+                  <button
+                    onClick={checkServiceability}
+                    className="cursor-pointer flex ml-14 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded"
+                  >
+                    Check
                   </button>
                 </div>
               </div>
