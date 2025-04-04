@@ -54,9 +54,9 @@ const page = () => {
                     <svg
                       fill="currentColor"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4 text-pink-500"
                       viewBox="0 0 24 24"
                     >
@@ -65,9 +65,9 @@ const page = () => {
                     <svg
                       fill="currentColor"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4 text-pink-500"
                       viewBox="0 0 24 24"
                     >
@@ -76,9 +76,9 @@ const page = () => {
                     <svg
                       fill="currentColor"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4 text-pink-500"
                       viewBox="0 0 24 24"
                     >
@@ -87,9 +87,9 @@ const page = () => {
                     <svg
                       fill="currentColor"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4 text-pink-500"
                       viewBox="0 0 24 24"
                     >
@@ -98,9 +98,9 @@ const page = () => {
                     <svg
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-4 h-4 text-pink-500"
                       viewBox="0 0 24 24"
                     >
@@ -112,9 +112,9 @@ const page = () => {
                     <a className="text-gray-500">
                       <svg
                         fill="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -124,9 +124,9 @@ const page = () => {
                     <a className="text-gray-500">
                       <svg
                         fill="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -136,9 +136,9 @@ const page = () => {
                     <a className="text-gray-500">
                       <svg
                         fill="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-5 h-5"
                         viewBox="0 0 24 24"
                       >
@@ -175,9 +175,9 @@ const page = () => {
                         <svg
                           fill="none"
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           className="w-4 h-4"
                           viewBox="0 0 24 24"
                         >
@@ -189,7 +189,7 @@ const page = () => {
                 </div>
                 <div className="flex">
                   <span className="title-font font-medium text-2xl text-gray-900">
-                  ₹499
+                    ₹499
                   </span>
                   <button className="cursor-pointer flex ml-4 text-white bg-pink-500 border-0 py-2 md:px-2 focus:outline-none hover:bg-pink-600 rounded">
                     Buy Now
@@ -200,9 +200,9 @@ const page = () => {
                   <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -214,7 +214,8 @@ const page = () => {
                 <div className="pin mt-6 flex space-x-2 text-sm">
                   <input
                     onChange={onChangePin}
-                    className="px-2 border-2 border-gray-400 rounded-md " placeholder="Enter your pincode"
+                    className="px-2 border-2 border-gray-400 rounded-md "
+                    placeholder="Enter your pincode"
                     type="text"
                   />
                   <button
@@ -224,12 +225,16 @@ const page = () => {
                     Check
                   </button>
                 </div>
-                {(!service && service !=null) && <div className="text-red-700 text-sm mt-3">
-                  Sorry! We do not deliver to this pincode
-                </div> }
-                {(service && service !=null) && <div className="text-green-700 text-sm mt-3">
-                  Yes, This pincode is servicable.
-                </div>}
+                {!service && service != null && (
+                  <div className="text-red-700 text-sm mt-3">
+                    Sorry! We do not deliver to this pincode
+                  </div>
+                )}
+                {service && service != null && (
+                  <div className="text-green-700 text-sm mt-3">
+                    Yes, This pincode is servicable.
+                  </div>
+                )}
               </div>
             </div>
           </div>

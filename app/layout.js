@@ -19,29 +19,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
-  const [cart, setCart] = useState({})
-  const [subTotal, setSubTotal] = uSeState(0)
-  const saveCart =(myCart) =>{
-    localStorage.setItem("cart", "myCart")
-  }
-  const addtoCart = (itemCode, qty, price, name, size, variant) => {
-    let newCart = cart;
-    if (itemCode in cart){
-      newCart[itemCode].qty = cart[itemCode].qty + qty
-    }
-    else {
-      newCart[itemCode] = {qty: 1, price, name, size, variant}
-
-    }
-    setCart(newCart)
-    saveCart(newCart)
-  }
-
-  const clearCart = () => {
-    setCart({})
-  }
-
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
