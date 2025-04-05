@@ -1,22 +1,33 @@
 "use client";
 
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
 import home from "../public/home.png";
 import Image from "next/image";
 import Content from "./components/Content";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [cart, setCart] = useState({});
-  const [subTotal, setSubTotal] = uSeState(0);
+  const [subTotal, setSubTotal] = useState(0);
   useEffect(() => {
     console.log("hey i am useeffect from _app.js");
+    try {
+      if (localStorage.getItem("cart")) {
+        setCart(JSON.parse(localStorage.getItem("cart")));
+      }
+    } catch {
+      console.error(error);
+      localStorage.clear();
+    }
   }, []);
 
   const saveCart = (myCart) => {
     localStorage.setItem("cart", "myCart");
+    let subt = 0;
+    let keys = Object.keys(cart);
+    for (let i = 0; keys.length; i++) {
+      subt += myCart[keys[i]].price * myCart[keys[i]].qty;
+    }
+    setSubTotal(subt);
   };
   const addToCart = (itemCode, qty, price, name, size, variant) => {
     let newCart = cart;
@@ -60,7 +71,13 @@ export default function Home() {
           }}
         />
       </div>
-      <Content />
+      <Content
+        cart={cart}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
+        subTotal={subTotal}
+      />
     </>
   );
 }
