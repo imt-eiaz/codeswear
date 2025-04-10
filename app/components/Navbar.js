@@ -55,7 +55,12 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
             </Link>
             <Link href={"/customerreg"} legacyBehavior>
               <a>
-                <li>Customer Reg</li>
+                <li>| Customer Reg |</li>
+              </a>
+            </Link>
+            <Link href={"/dailysales"} legacyBehavior>
+              <a>
+                <li>| Daily Sales |</li>
               </a>
             </Link>
           </ul>
