@@ -9,8 +9,8 @@ import { FaCircleMinus } from "react-icons/fa6";
 import { FaCirclePlus } from "react-icons/fa6";
 import { IoBagCheckSharp } from "react-icons/io5";
 
-const Navbar = ({cart, addToCart, removeFromCart, clearCart, subTotal}) => {
-  console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
+const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
+  console.log(cart, addToCart, removeFromCart, clearCart, subTotal);
   const toggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -51,6 +51,11 @@ const Navbar = ({cart, addToCart, removeFromCart, clearCart, subTotal}) => {
             <Link href={"/mugs"} legacyBehavior>
               <a>
                 <li>Mugs</li>
+              </a>
+            </Link>
+            <Link href={"/customerreg"} legacyBehavior>
+              <a>
+                <li>Customer Reg</li>
               </a>
             </Link>
           </ul>

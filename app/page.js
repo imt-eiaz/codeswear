@@ -1,6 +1,6 @@
 "use client";
 
-import home from "../public/home.png";
+import wall from "./public/wall.jpg";
 import Image from "next/image";
 import Content from "./components/Content";
 import { useEffect, useState } from "react";
@@ -62,7 +62,7 @@ export default function Home() {
     <>
       <div>
         <Image
-          src={home}
+          src={wall}
           alt="Picture of the author"
           sizes="100vw"
           style={{
