@@ -4,10 +4,7 @@ import Link from "next/link";
 import input from "react";
 
 const page = () => {
-  let [total, setTotal] = useState(0);
-  function handleClick() {
-    setTotal(250 + 320);
-  }
+  const [name, setName] = useState({ qty: "", price: "" });
 
   return (
     <>
@@ -19,6 +16,11 @@ const page = () => {
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4  text-gray-900">
                   <label class="underline">PhoneBox Daily Sales</label>
                 </h1>
+                Quatity: {name.qty}
+                <br />
+                Price : {name.price}
+                <br />
+                Total : {name.qty * name.price}
               </div>
               <div class="flex flex-col text-left w-full mb-4  px-5 py-10 mx-auto">
                 <h1 class="sm:text-3xl text-l font-medium title-font mb-1 text-gray-900">
@@ -79,6 +81,8 @@ const page = () => {
                   </label>
 
                   <input
+                    onChange={(e) => setName({ ...name, qty: e.target.value })}
+                    value={name.qty}
                     type="number"
                     id="qty"
                     name="dob"
@@ -95,6 +99,10 @@ const page = () => {
                   </label>
 
                   <input
+                    onChange={(e) =>
+                      setName({ ...name, price: e.target.value })
+                    }
+                    value={name.price}
                     type="number"
                     id="price"
                     name="dob"
@@ -108,16 +116,14 @@ const page = () => {
                   >
                     Total(in £)
                   </label>
-                  <label for="full-name" class=" text-l  font-bold text-black ">
-                    {total}
-                  </label>
+                  <label
+                    for="full-name"
+                    class=" text-l  font-bold text-black "
+                  ></label>
                 </div>
               </div>
               <div class="relative flex w-full justify-center py-10">
-                <button
-                  onClick={handleClick}
-                  class="text-white bg-green-500 cursor-pointer border-1 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
-                >
+                <button class="text-white bg-green-500 cursor-pointer border-1 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
                   Calculate
                 </button>
               </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import input from "react";
 
 const page = () => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState({ firstName: "", lastName: "", mobile: "" });
   return (
     <>
       <div>
@@ -15,6 +15,9 @@ const page = () => {
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
                   PhoneBox Customer Registration
                 </h1>
+                Customer : {name.firstName}
+                <br />
+                Mobile : {name.mobile}
               </div>
               <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
                 <div class="relative flex-grow w-full">
@@ -93,11 +96,13 @@ const page = () => {
                   </label>
 
                   <input
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) =>
+                      setName({ ...name, firstName: e.target.value })
+                    }
                     type="text"
                     id="name"
                     // name="name"
-                    value={name}
+                    value={name.firstName}
                     class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
@@ -111,9 +116,13 @@ const page = () => {
                   </label>
 
                   <input
-                    type="tel"
+                    onChange={(e) =>
+                      setName({ ...name, mobile: e.target.value })
+                    }
+                    type="number"
                     id="contact"
                     name="contact"
+                    value={name.mobile}
                     class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-transparent focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                   />
                 </div>
