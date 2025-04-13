@@ -16,11 +16,17 @@
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^7.0.2",
     "@mui/material-nextjs": "^7.0.2",
+<<<<<<< HEAD
     "@mui/styles": "^6.4.8",
     "@mui/x-data-grid": "^7.28.3",
     "@mui/x-date-pickers": "^7.28.3",
     "@tailwindcss/postcss": "^4.0.6",
     "date-fns": "^4.1.0",
+=======
+    "@mui/styles": "^6.4.11",
+    "@mui/x-date-pickers": "^7.28.3",
+    "@tailwindcss/postcss": "^4.0.6",
+>>>>>>> efcdf56188f0d2dd39c595386960e4bb810d7aad
     "dayjs": "^1.11.13",
     "next": "^15.3.0",
     "postcss": "^8.5.2",
