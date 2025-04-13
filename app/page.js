@@ -5,7 +5,56 @@ import Image from "next/image";
 import Content from "./components/Content";
 import { useEffect, useState } from "react";
 
+import { CssBaseline } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+
+import { makeStyles } from "@mui/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#4caf50",
+      light: "#6fbf73",
+    },
+    secondary: {
+      main: "#ffeb3b",
+      light: "#ffef62",
+    },
+    background: {
+      default: "#fff",
+    },
+  },
+  shape: {
+    borderRadius: "12px",
+  },
+  overrides: {
+    MuiAppBar: {
+      root: {
+        transform: "translateZ(0)",
+        flexDirection: "row-reverse",
+      },
+    },
+  },
+  components: {
+    MuiIconButton: {
+      // defaultProps: {
+      // MuiIconButton: {
+      disableRipple: false,
+    },
+  },
+});
+
+const useStyles = makeStyles({
+  appMain: {
+    paddingLeft: "320px",
+    width: "100%",
+  },
+});
+
 export default function Home() {
+  const classes = useStyles();
+
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   useEffect(() => {
@@ -60,24 +109,27 @@ export default function Home() {
 
   return (
     <>
-      <div>
-        <Image
-          src={wall}
-          alt="Picture of the author"
-          sizes="100vw"
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
+      <ThemeProvider theme={theme}>
+        <div>
+          <Image
+            src={wall}
+            alt="Picture of the author"
+            sizes="100vw"
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </div>
+        <Content
+          cart={cart}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          clearCart={clearCart}
+          subTotal={subTotal}
         />
-      </div>
-      <Content
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-      />
+        <CssBaseline />
+      </ThemeProvider>
     </>
   );
 }

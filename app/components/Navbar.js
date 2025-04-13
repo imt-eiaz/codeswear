@@ -34,39 +34,25 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
         <div className="nav">
           <ul className="flex items-center space-x-4 font-bold md:text-xl">
             <Link href={"/tshirts"} legacyBehavior>
-              <a>
-                <li>Tshirts</li>
-              </a>
+              <li>Tshirts</li>
             </Link>
-            <Link href={"/hoodies"} legacyBehavior>
-              <a>
-                <li>Hoodies</li>
-              </a>
+            <Link href={"/hoodies"}>
+              <li>Hoodies</li>
             </Link>
-            <Link href={"/stickers"} legacyBehavior>
-              <a>
-                <li>Stickers</li>
-              </a>
+            <Link href={"/stickers"}>
+              <li>Stickers</li>
             </Link>
-            <Link href={"/mugs"} legacyBehavior>
-              <a>
-                <li>Mugs</li>
-              </a>
+            <Link href={"/mugs"}>
+              <li>Mugs</li>
             </Link>
-            <Link href={"/customerreg"} legacyBehavior>
-              <a>
-                <li>| Customer Reg |</li>
-              </a>
+            <Link href={"/customerreg"}>
+              <li>| Customer Reg |</li>
             </Link>
-            <Link href={"/customerregi"} legacyBehavior>
-              <a>
-                <li>| Customer Regi |</li>
-              </a>
+            <Link href={"/customerregi"}>
+              <li>| Customer Regi |</li>
             </Link>
-            <Link href={"/dailysales"} legacyBehavior>
-              <a>
-                <li>| Daily Sales |</li>
-              </a>
+            <Link href={"/dailysales"}>
+              <li>| Daily Sales |</li>
             </Link>
           </ul>
         </div>

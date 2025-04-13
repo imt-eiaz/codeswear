@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import EmployeeForm from "./EmployeeForm";
 import PageHeader from "../../components/PageHeader";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+
+import { CssBaseline } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+
 import {
   Paper,
   TableBody,
@@ -120,121 +125,165 @@ export default function Employees() {
     });
   };
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: "#4caf50",
+        light: "#6fbf73",
+      },
+      secondary: {
+        main: "#ffeb3b",
+        light: "#ffef62",
+      },
+      background: {
+        default: "#fff",
+      },
+    },
+    shape: {
+      borderRadius: "12px",
+    },
+    overrides: {
+      MuiAppBar: {
+        root: {
+          transform: "translateZ(0)",
+          flexDirection: "row-reverse",
+        },
+      },
+    },
+    components: {
+      MuiIconButton: {
+        // defaultProps: {
+        // MuiIconButton: {
+        disableRipple: false,
+      },
+    },
+  });
+
+  const useStyles = makeStyles({
+    appMain: {
+      paddingLeft: "320px",
+      width: "100%",
+    },
+  });
+
   return (
     <>
-      <PageHeader
-        title="New Employee"
-        subTitle="form design with validation"
-        icon={<PeopleAltIcon fontSize="large" />}
-        sx={{ m: "50px", mb: "20px", border: 1, borderColor: "#000" }}
-      />
-      <Paper
-        className={classes.pageContent}
-        sx={{
-          m: "50px",
-          mb: "20px",
-          mt: "10px",
-          borderColor: "#000",
-        }}
-      ></Paper>
+      <ThemeProvider theme={theme}>
+        <PageHeader
+          title="New Employee"
+          subTitle="form design with validation"
+          icon={<PeopleAltIcon fontSize="large" />}
+          sx={{ m: "50px", mb: "20px", border: 1, borderColor: "#000" }}
+        />
+        <Paper
+          className={classes.pageContent}
+          sx={{
+            m: "50px",
+            mb: "20px",
+            mt: "10px",
+            borderColor: "#000",
+          }}
+        ></Paper>
 
-      <Paper
-        sx={{
-          m: "50px",
-          mb: "20px",
-          border: 1,
-          border: 1,
-          borderColor: "#000",
-        }}
-      >
-        <Toolbar>
-          <Controls.Input
-            sx={{ mt: "20px" }}
-            label="Search Employees"
-            className={classes.searchInput}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <Search />
-                </InputAdornment>
-              ),
-            }}
-            onChange={handleSearch}
-          />
-          <Controls.Button
-            text="Add new"
-            varient="outlined"
-            startIcon={<Add />}
-            className={classes.newButton}
-            onClick={() => {
-              setOpenPopup(true);
-              setRecordForEdit(null);
-            }}
-          />
-        </Toolbar>
-        <TblContainer>
-          <TblHead />
-          <TableBody>
-            {recordsAfterPagingAndSorting().map((item) => (
-              <TableRow
-                key={item.id}
-                sx={{
-                  mb: 20,
-                  "& .MuiTableRow-root": {
-                    borderRadius: "1px",
-                    color: "red",
-                  },
-                }}
-              >
-                <TableCell>{item.fullName}</TableCell>
-                <TableCell>{item.email}</TableCell>
-                <TableCell>{item.mobile}</TableCell>
-                <TableCell>{item.department}</TableCell>
-                <TableCell>
-                  <Controls.ActionButton
-                    color="primary"
-                    onClick={() => {
-                      openInPopup(item);
-                    }}
-                  >
-                    {" "}
-                    <Edit fontSize="small" />
-                  </Controls.ActionButton>
-                  <Controls.ActionButton
-                    color="danger"
-                    onClick={() => {
-                      setConfirmDialog({
-                        isOpen: true,
-                        title: "Are you sure to delete this record ? ",
-                        subTitle: "You can't undo this operation.",
-                        onConfirm: () => {
-                          onDelete(item.id);
-                        },
-                      });
-                    }}
-                  >
-                    {" "}
-                    <Close fontSize="small" />
-                  </Controls.ActionButton>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </TblContainer>
-        <TblPagination />
-      </Paper>
-      <Popup
-        title="Employee Form"
-        openPopup={openPopup}
-        setOpenPopup={setOpenPopup}
-      >
-        <EmployeeForm recordForEdit={recordForEdit} addOrEdit={addOrEdit} />
-      </Popup>
-      <Notification notify={notify} setNotify={setNotify} />
-      <ConfirmDialog
-        confirmDialog={confirmDialog}
-        setConfirmDialog={setConfirmDialog}
-      />
+        <Paper
+          sx={{
+            m: "50px",
+            mb: "20px",
+            border: 1,
+            border: 1,
+            borderColor: "#000",
+          }}
+        >
+          <Toolbar>
+            <Controls.Input
+              sx={{ mt: "20px" }}
+              label="Search Employees"
+              className={classes.searchInput}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Search />
+                  </InputAdornment>
+                ),
+              }}
+              onChange={handleSearch}
+            />
+            <Controls.Button
+              text="Add new"
+              varient="outlined"
+              startIcon={<Add />}
+              className={classes.newButton}
+              onClick={() => {
+                setOpenPopup(true);
+                setRecordForEdit(null);
+              }}
+            />
+          </Toolbar>
+          <TblContainer>
+            <TblHead />
+            <TableBody>
+              {recordsAfterPagingAndSorting().map((item) => (
+                <TableRow
+                  key={item.id}
+                  sx={{
+                    mb: 20,
+                    "& .MuiTableRow-root": {
+                      borderRadius: "1px",
+                      color: "red",
+                    },
+                  }}
+                >
+                  <TableCell>{item.fullName}</TableCell>
+                  <TableCell>{item.email}</TableCell>
+                  <TableCell>{item.mobile}</TableCell>
+                  <TableCell>{item.department}</TableCell>
+                  <TableCell>
+                    <Controls.ActionButton
+                      color="primary"
+                      onClick={() => {
+                        openInPopup(item);
+                      }}
+                    >
+                      {" "}
+                      <Edit fontSize="small" />
+                    </Controls.ActionButton>
+                    <Controls.ActionButton
+                      color="danger"
+                      onClick={() => {
+                        setConfirmDialog({
+                          isOpen: true,
+                          title: "Are you sure to delete this record ? ",
+                          subTitle: "You can't undo this operation.",
+                          onConfirm: () => {
+                            onDelete(item.id);
+                          },
+                        });
+                      }}
+                    >
+                      {" "}
+                      <Close fontSize="small" />
+                    </Controls.ActionButton>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </TblContainer>
+          <TblPagination />
+        </Paper>
+        <Popup
+          title="Employee Form"
+          openPopup={openPopup}
+          setOpenPopup={setOpenPopup}
+        >
+          <EmployeeForm recordForEdit={recordForEdit} addOrEdit={addOrEdit} />
+        </Popup>
+        <Notification notify={notify} setNotify={setNotify} />
+        <ConfirmDialog
+          confirmDialog={confirmDialog}
+          setConfirmDialog={setConfirmDialog}
+        />
+        <CssBaseline />
+      </ThemeProvider>
     </>
   );
 }

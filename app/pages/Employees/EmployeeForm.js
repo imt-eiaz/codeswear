@@ -1,5 +1,5 @@
 // import  Grid  from "@mui/material/Grid2";
-import Grid from "@mui/material/Grid2";
+// import Grid from "@mui/material/Grid2";
 
 import React, { useEffect, useState } from "react";
 import { useForm, Form } from "../../components/useForm";
@@ -75,92 +75,93 @@ export default function EmployeeForm(props) {
   }, [recordForEdit]);
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Grid container>
-        <Grid item size={{ xs: 6 }}>
-          <Controls.Input
-            name="fullName"
-            label="Full Names"
-            value={values.fullName}
-            onChange={handleInputChange}
-            error={errors.fullName}
-          />
-          <Controls.Input
-            label="Email"
-            name="email"
-            value={values.email}
-            onChange={handleInputChange}
-            error={errors.email}
-          />
-          <Controls.Input
-            name="mobile"
-            label="Mobile"
-            value={values.mobile}
-            onChange={handleInputChange}
-            error={errors.mobile}
-          />
-          <Controls.Input
-            name="city"
-            label="City"
-            value={values.city}
-            onChange={handleInputChange}
-          />
-        </Grid>
+    // <Form onSubmit={handleSubmit}>
+    //   <Grid container>
+    //     <Grid item size={{ xs: 6 }}>
+    //       <Controls.Input
+    //         name="fullName"
+    //         label="Full Names"
+    //         value={values.fullName}
+    //         onChange={handleInputChange}
+    //         error={errors.fullName}
+    //       />
+    //       <Controls.Input
+    //         label="Email"
+    //         name="email"
+    //         value={values.email}
+    //         onChange={handleInputChange}
+    //         error={errors.email}
+    //       />
+    //       <Controls.Input
+    //         name="mobile"
+    //         label="Mobile"
+    //         value={values.mobile}
+    //         onChange={handleInputChange}
+    //         error={errors.mobile}
+    //       />
+    //       <Controls.Input
+    //         name="city"
+    //         label="City"
+    //         value={values.city}
+    //         onChange={handleInputChange}
+    //       />
+    //     </Grid>
 
-        <Grid item size={{ xs: 6 }}>
-          <FormControl>
-            <FormLabel>Gender</FormLabel>
-            <Controls.RadioGroup
-              row
-              name="gender"
-              // label="Gender"
-              value={values.gender}
-              onChange={handleInputChange}
-              items={genderItems}
-            />
-          </FormControl>
-          <Controls.Select
-            name="departmentId"
-            label="Department"
-            value={values.departmentId}
-            onChange={handleInputChange}
-            options={employeeService.getDepartmentCollection()}
-            error={errors.departmentId}
-          />
+    //     <Grid item size={{ xs: 6 }}>
+    //       <FormControl>
+    //         <FormLabel>Gender</FormLabel>
+    //         <Controls.RadioGroup
+    //           row
+    //           name="gender"
+    //           // label="Gender"
+    //           value={values.gender}
+    //           onChange={handleInputChange}
+    //           items={genderItems}
+    //         />
+    //       </FormControl>
+    //       <Controls.Select
+    //         name="departmentId"
+    //         label="Department"
+    //         value={values.departmentId}
+    //         onChange={handleInputChange}
+    //         options={employeeService.getDepartmentCollection()}
+    //         error={errors.departmentId}
+    //       />
 
-          <Controls.DatePicker
-            name="hiredDate"
-            label="Hire Date"
-            value={values.hiredDate}
-            onChange={handleInputChange}
-          />
+    //       <Controls.DatePicker
+    //         name="hiredDate"
+    //         label="Hire Date"
+    //         value={values.hiredDate}
+    //         onChange={handleInputChange}
+    //       />
 
-          <Controls.CheckBox
-            name="isPermanent"
-            label="Permanent Employee"
-            value={values.isPermanent}
-            onChange={handleInputChange}
-          />
+    //       <Controls.CheckBox
+    //         name="isPermanent"
+    //         label="Permanent Employee"
+    //         value={values.isPermanent}
+    //         onChange={handleInputChange}
+    //       />
 
-          <Stack
-            direction="row"
-            spacing={2}
-            sx={{ textTransform: "capitalize" }}
-          >
-            <Controls.Button
-              type="submit"
-              text="Submit"
-              sx={{ textTransform: "capitalize", fontSize: "h6.fontSize" }}
-            />
-            <Controls.Button
-              text="Reset"
-              color="default"
-              onClick={resetForm}
-              sx={{ textTransform: "capitalize", fontSize: "h6.fontSize" }}
-            />
-          </Stack>
-        </Grid>
-      </Grid>
-    </Form>
+    //       <Stack
+    //         direction="row"
+    //         spacing={2}
+    //         sx={{ textTransform: "capitalize" }}
+    //       >
+    //         <Controls.Button
+    //           type="submit"
+    //           text="Submit"
+    //           sx={{ textTransform: "capitalize", fontSize: "h6.fontSize" }}
+    //         />
+    //         <Controls.Button
+    //           text="Reset"
+    //           color="default"
+    //           onClick={resetForm}
+    //           sx={{ textTransform: "capitalize", fontSize: "h6.fontSize" }}
+    //         />
+    //       </Stack>
+    //     </Grid>
+    //   </Grid>
+    // </Form>
+    <h1>hello</h1>
   );
 }
